@@ -162,9 +162,9 @@ public class MigrateMySQLToPostgreSQL {
     private static void createIndexes(Connection postgresConnection) throws SQLException {
         String createIndexesSQL =
                 "CREATE INDEX IF NOT EXISTS ACT_IDX_HI_ACT_INST_START ON act_hi_actinst (\"START_TIME_\");" +
-                        "CREATE INDEX IF NOT EXISTS ACT_IDX_HI_ACT_INST_END ON act_hi_actinst (\"END_TIME_\");" +
-                        "CREATE INDEX IF NOT EXISTS ACT_IDX_HI_ACT_INST_PROCINST ON act_hi_actinst (\"PROC_INST_ID_\", \"ACT_ID_\");" +
-                        "CREATE INDEX IF NOT EXISTS ACT_IDX_HI_ACT_INST_EXEC ON act_hi_actinst (\"EXECUTION_ID_\", \"ACT_ID_\");";
+                "CREATE INDEX IF NOT EXISTS ACT_IDX_HI_ACT_INST_END ON act_hi_actinst (\"END_TIME_\");" +
+                "CREATE INDEX IF NOT EXISTS ACT_IDX_HI_ACT_INST_PROCINST ON act_hi_actinst (\"PROC_INST_ID_\", \"ACT_ID_\");" +
+                "CREATE INDEX IF NOT EXISTS ACT_IDX_HI_ACT_INST_EXEC ON act_hi_actinst (\"EXECUTION_ID_\", \"ACT_ID_\");";
 
         try (Statement postgresStatement = postgresConnection.createStatement()) {
             postgresStatement.executeUpdate(createIndexesSQL);
